@@ -1,3 +1,30 @@
+// WHEN THE PAGE LOADS, SET EVERYTHING UP
+document.addEventListener("DOMContentLoaded", function () {
+  updateDate();
+});
+
+// UPDATE THE DATE IN THE HEADER
+function updateDate() {
+  const now = new Date();
+  const days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  const dayName = days[now.getDay()];
+  const month = String(now.getMonth() + 1).padStart(2, "0");
+  const day = String(now.getDate()).padStart(2, "0");
+  const year = now.getFullYear();
+  const formattedDate = `${month}/${day}/${year}`;
+
+  document.getElementById("currentDay").textContent = dayName;
+  document.getElementById("currentDate").textContent = formattedDate;
+}
+
 // Start with the data structure
 let transactions = [];
 
